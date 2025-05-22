@@ -19,6 +19,8 @@ RUN sudo apk add build-base
 # problems.
 #
 # Take care when running as `sudo`. It changes the home directory.
+# Set the Docker user and their working directory before making the local binary
+# directory before installing s(CASP).
 USER vscode
 WORKDIR /home/vscode
 RUN mkdir -p $HOME/.local/bin && SWIPL_PREFIX=$HOME/.local swipl pack install -y scasp
