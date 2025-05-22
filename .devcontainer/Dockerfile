@@ -19,4 +19,6 @@ RUN sudo apk add build-base
 # problems.
 #
 # Take care when running as `sudo`. It changes the home directory.
-RUN SWIPL_PREFIX=$HOME/.local swipl pack install -y scasp
+USER vscode
+WORKDIR /home/vscode
+RUN mkdir -p $HOME/.local/bin && SWIPL_PREFIX=$HOME/.local swipl pack install -y scasp
